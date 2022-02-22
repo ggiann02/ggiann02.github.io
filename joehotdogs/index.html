@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Joe's Hotdogs</title>
+    <meta name="description" content="An interactive getting started guide for Brackets.">
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="text/javascript">
+        
+        alert("Welcome to Joe's Hotdogs! Please input your name and your order for our delicious hotdogs! The prices for each item are: Hotdogs - 3.75$, Fries - 2.00$, Drinks - 1.80$");
+        
+        var username;
+        username = prompt("Please enter your name");
+        
+        const hotdogPrice = 3.75;
+        const friesPrice = 2.00;
+        const drinksPrice = 1.80;
+        const specialOffer = 0.9;
+        const mealsTax = 1.0625;
+        
+        var numHotdogs;
+        numHotdogs = prompt("How many hotdogs do you want?");
+        
+        var numFries;
+        numFries = prompt("How many fries do you want?");
+        
+        var numSodas;
+        numSodas = prompt("How many sodas do you want?");
+        
+        var subtotal = (numHotdogs * hotdogPrice) + (numFries * friesPrice) + (numSodas * drinksPrice);
+        
+        const subtotalBeforeTax = subtotal;
+        
+        var discount = 0;
+        var discountSubtotal = 0;
+        
+        if (subtotalBeforeTax >= 20) {
+            discount = subtotalBeforeTax * 0.1;
+            subtotal = (subtotal * specialOffer);
+            discountSubtotal = subtotal;  
+        }
+        
+        
+        const tax = subtotal * 0.0625;
+        subtotal = subtotal * mealsTax;  
+        
+        const total = subtotal;
+    </script>
+</head>
+    
+<body>
+    <div class="banner">
+        <h3>Hello <span id="name"></span>!</h3>
+        <script>
+            let name = username;
+            document.getElementById("name").innerHTML = name;
+        </script>
+        <h3>WELCOME TO</h3>
+        <h1>JOE'S HOTDOGS</h1>
+    </div>
+    <div class="content">
+        <p>Welcome to our orders page! <br/> <br/> Here is your order</p>
+    </div>
+    <div class="order row">
+        <div class="left column">
+        <h1>Items Ordered and Quantities</h1>
+        <div class="hotdogs">Hotdogs Ordered: 
+            <span id="hotdogs"></span>
+        </div>
+        
+        <script>
+            let hotdogs = numHotdogs;
+            document.getElementById("hotdogs").innerHTML = hotdogs;
+        </script>
+        
+        <div class="fries">Fries Ordered:
+            <span id="fries"></span>
+        </div>
+        
+        <script>
+            let fries = numFries;
+            document.getElementById("fries").innerHTML = fries;
+        </script>
+        
+        <div class="drinks">Drinks Ordered:
+            <span id="drinks"></span>
+        </div>
+        
+        <script>
+            let drinks = numSodas;
+            document.getElementById("drinks").innerHTML = drinks;
+        </script>   
+        </div>
+        
+        <div class="right column">
+        <h1>Subtotals and discounts</h1>
+        <div class="subBeforeTax">Subtotal before tax: $
+            <span id="subBeforeTax"></span>     
+        </div>
+            
+        <script>
+            let subBeforeTax = subtotalBeforeTax.toFixed(2);
+            document.getElementById("subBeforeTax").innerHTML = subBeforeTax;
+        </script> 
+            
+        <div class="subBeforeDiscount">Subtotal after discount (if applicable): $
+            <span id="subBeforeDiscount"></span>  
+        </div>
+            
+        <script>
+            let subBeforeDiscount = discountSubtotal.toFixed(2);
+            document.getElementById("subBeforeDiscount").innerHTML = subBeforeDiscount;
+        </script>
+        
+        <div class="discAmount">Discount amount (if applicable): $
+            <span id="discAmount"></span>  
+        </div>
+            
+        <script>
+            let discAmount = discount.toFixed(2);
+            document.getElementById("discAmount").innerHTML = discAmount;
+        </script>
+        
+        <div class="taxAmount">Tax amount: $
+            <span id="taxAmount"></span>    
+        </div>
+            
+        <script>
+            let taxAmount = tax.toFixed(2);
+            document.getElementById("taxAmount").innerHTML = taxAmount;
+        </script>
+            
+        <div class="totalAmount">Final Total: $
+            <span id="totalAmount"></span>    
+        </div>
+            
+        <script>
+            let totalAmount = total.toFixed(2);
+            document.getElementById("totalAmount").innerHTML = totalAmount;
+        </script>
+            
+        
+        
+        
+        </div>
+        
+    
+    </div>
+    
+</body>
+
+
+</html>
